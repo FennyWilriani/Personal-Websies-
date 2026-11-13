@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fenny | System Engineer · Azure & AWS</title>
+  <meta name="description" content="Personal website of Fenny - system engineer with Azure and AWS certifications, traveller and photographer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar" id="topbar">
+    <a href="#top" class="logo">fenny<i>.</i></a>
+    <div class="topbar-right">
+      <a href="#contact" class="pill dark">Let's talk</a>
+      <button class="pill light" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu <span class="dots"><b></b><b></b></span></button>
+    </div>
+  </header>
+
+  <!-- FULL-SCREEN MENU -->
+  <div class="menu" id="menu" hidden>
+    <button class="menu-close pill light" id="menuClose">Close &times;</button>
+    <nav>
+      <a href="#top"><span>01</span>Home</a>
+      <a href="#about"><span>02</span>About</a>
+      <a href="#content" data-open-tab="professional"><span>03</span>Professional</a>
+      <a href="#content" data-open-tab="travel"><span>04</span>Travel &amp; Photography</a>
+      <a href="#contact"><span>05</span>Contact</a>
+    </nav>
+    <p class="mono">Tap outside to close</p>
+  </div>
+
+  <!-- SIDE PROGRESS DOTS -->
+  <ul class="progress" id="progress" aria-hidden="true">
+    <li data-target="top"></li><li data-target="about"></li><li data-target="content"></li><li data-target="contact"></li>
+  </ul>
+
+  <!-- 01 HERO -->
+  <!-- Shared palm drawing (reused many times below) -->
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <path id="frond" d="M0 0 C 28 -44 88 -52 140 4 C 96 -22 44 -20 0 0 Z"/>
+      <g id="palm">
+        <path style="fill:var(--trunk)" d="M-6 0 C 6 90 -14 190 2 290 L 18 290 C 2 190 22 90 10 0 Z"/>
+        <g style="fill:var(--leaf2)">
+          <use href="#frond" transform="rotate(-60) scale(.9)"/>
+          <use href="#frond" transform="scale(-1,1) rotate(-60) scale(.9)"/>
+          <use href="#frond" transform="rotate(12) scale(.95)"/>
+          <use href="#frond" transform="scale(-1,1) rotate(12) scale(.95)"/>
+        </g>
+        <g style="fill:var(--leaf)">
+          <use href="#frond" transform="rotate(-92)"/>
+          <use href="#frond" transform="scale(-1,1) rotate(-92)"/>
+          <use href="#frond" transform="rotate(-32)"/>
+          <use href="#frond" transform="scale(-1,1) rotate(-32)"/>
+          <use href="#frond" transform="rotate(38)"/>
+          <use href="#frond" transform="scale(-1,1) rotate(38)"/>
+        </g>
+        <circle cx="-3" cy="10" r="7" style="fill:var(--nut)"/>
+        <circle cx="10" cy="12" r="7" style="fill:var(--nut)"/>
+      </g>
+    </defs>
+  </svg>
+
+  <header class="hero" id="top">
+    <div class="stage">
+
+      <div class="layer sun" data-speed="0.15"></div>
+      <div class="layer cloud c1" data-speed="0.25"></div>
+      <div class="layer cloud c2" data-speed="0.35"></div>
+      <div class="layer cloud c3" data-speed="0.20"></div>
+
+      <!-- Birds: flap on their own, drift right/up as you scroll -->
+      <div class="layer birds" id="birds" aria-hidden="true">
+        <svg class="bird b1" viewBox="0 0 40 20"><path d="M2 12 Q10 -2 20 12 Q30 -2 38 12"/></svg>
+        <svg class="bird b2" viewBox="0 0 40 20" style="--bird:#E58A9A"><path d="M2 12 Q10 -2 20 12 Q30 -2 38 12"/></svg>
+        <svg class="bird b3" viewBox="0 0 40 20"><path d="M2 12 Q10 -2 20 12 Q30 -2 38 12"/></svg>
+        <svg class="bird b4" viewBox="0 0 40 20" style="--bird:#E58A9A"><path d="M2 12 Q10 -2 20 12 Q30 -2 38 12"/></svg>
+        <svg class="bird b5" viewBox="0 0 40 20" style="--bird:#7FB7D6"><path d="M2 12 Q10 -2 20 12 Q30 -2 38 12"/></svg>
+        <svg class="bird b6" viewBox="0 0 40 20"><path d="M2 12 Q10 -2 20 12 Q30 -2 38 12"/></svg>
+      </div>
+
+      <!-- Far hills with small pale palms -->
+      <div class="layer far" data-speed="0.30">
+        <svg class="palm f1" viewBox="-150 -140 300 440"><use href="#palm"/></svg>
+        <svg class="palm f2" viewBox="-150 -140 300 440"><use href="#palm"/></svg>
+        <svg class="palm f3" viewBox="-150 -140 300 440"><use href="#palm"/></svg>
+        <svg class="hill" viewBox="0 0 1440 360" preserveAspectRatio="none"><path d="M0 360 V150 C 180 90 300 130 480 100 S 800 60 960 100 S 1260 80 1440 120 V360 Z"/></svg>
+      </div>
+
+      <!-- Mid forest: palms standing in a scalloped canopy -->
+      <div class="layer mid" data-speed="0.60">
+        <svg class="palm m1" viewBox="-150 -140 300 440"><use href="#palm"/></svg>
+        <svg class="palm m2" viewBox="-150 -140 300 440"><use href="#palm"/></svg>
+        <svg class="palm m3" viewBox="-150 -140 300 440"><use href="#palm"/></svg>
+        <svg class="palm m4" viewBox="-150 -140 300 440"><use href="#palm"/></svg>
+        <svg class="hill" viewBox="0 0 1440 400" preserveAspectRatio="none"><path d="M0 400 V120 q22 -40 44 0 q18 -28 36 0 q26 -48 52 0 q20 -30 40 0 q22 -40 44 0 q18 -28 36 0 q26 -48 52 0 q20 -30 40 0 q22 -40 44 0 q18 -28 36 0 q26 -48 52 0 q20 -30 40 0 q22 -40 44 0 q18 -28 36 0 q26 -48 52 0 q20 -30 40 0 q22 -40 44 0 q18 -28 36 0 q26 -48 52 0 q20 -30 40 0 q22 -40 44 0 q18 -28 36 0 q26 -48 52 0 q20 -30 40 0 q22 -40 44 0 q18 -28 36 0 q26 -48 52 0 q20 -30 40 0 q22 -40 44 0 q18 -28 36 0 q26 -48 52 0 q20 -30 40 0 q22 -40 44 0 q18 -28 36 0 q26 -48 52 0 q20 -30 40 0 V400 Z"/></svg>
+      </div>
+
+      <!-- Name sits BEHIND the portrait and fades out as you scroll -->
+      <h1 class="title" id="title"><span class="outline">Hi, I'm</span> Fenny</h1>
+      <!-- Optional: put head.png (a cut-out photo) next to index.html. Hidden until it exists. -->
+      <div class="head none" id="head" role="img" aria-label="Portrait of Fenny"></div>
+
+      <!-- Foreground ground -->
+      <div class="layer near" data-speed="0.5">
+        <svg class="hill" viewBox="0 0 1440 400" preserveAspectRatio="none"><path d="M0 400 V110 C 220 40 460 120 720 80 S 1200 30 1440 100 V400 Z"/></svg>
+      </div>
+
+      <!-- Big foreground palms framing the corners -->
+      <div class="layer fg" data-speed="1.10" aria-hidden="true">
+        <svg class="palm fgl" viewBox="-150 -140 300 440"><use href="#palm"/></svg>
+        <svg class="palm fgr" viewBox="-150 -140 300 440"><use href="#palm"/></svg>
+      </div>
+
+      <div class="hero-copy" id="heroCopy">
+        <ul class="mono tags">
+          <li>Belgium</li>
+          <li>System engineer &middot; Azure &middot; AWS</li>
+        </ul>
+      </div>
+      <p class="hint mono" id="hint">Scroll &darr;</p>
+    </div>
+  </header>
+
+<!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Azure</span><span>&#9679;</span><span>AWS</span><span>&#9679;</span><span>Cloud engineering</span><span>&#9679;</span><span>Microsoft 365 &amp; Intune</span><span>&#9679;</span><span>Security</span><span>&#9679;</span><span>Travel</span><span>&#9679;</span><span>Photography</span><span>&#9679;</span>
+      <span>Azure</span><span>&#9679;</span><span>AWS</span><span>&#9679;</span><span>Cloud engineering</span><span>&#9679;</span><span>Microsoft 365 &amp; Intune</span><span>&#9679;</span><span>Security</span><span>&#9679;</span><span>Travel</span><span>&#9679;</span><span>Photography</span><span>&#9679;</span>
+    </div>
+  </div>
+
+  <!-- 02 ABOUT -->
+  <section class="section about" id="about">
+    <div class="wrap">
+      <p class="label mono">Section <b>02</b> &mdash; About</p>
+      <h2 class="big reveal">Build it right, <span class="hl">run it quietly.</span></h2>
+      <div class="two-col">
+        <p class="reveal">
+          I'm a system engineer with hands-on cloud experience, certified in both Azure and AWS.
+          I work across cloud infrastructure, identity, device management and security,
+          mostly for remote, international teams.
+        </p>
+        <p class="reveal">
+          Based in Belgium. Outside work I travel and take photos.
+          <!-- EDIT: replace with your own story -->
+        </p>
+      </div>
+      <ul class="stats">
+        <li class="reveal"><strong>Azure</strong><span>Certified</span></li>
+        <li class="reveal"><strong>AWS</strong><span>Certified</span></li>
+        <li class="reveal"><strong>Multi-cloud</strong><span>Azure &middot; AWS &middot; Google Cloud</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- QUOTE (parallax band) -->
+  <section class="quote" aria-hidden="true">
+    <div class="quote-bg" data-qspeed="0.25"></div>
+    <blockquote class="reveal">"Not all those who wander are lost."</blockquote>
+  </section>
+
+  <!-- 03 CONTENT / TABS -->
+  <section class="section" id="content">
+    <div class="wrap">
+      <p class="label mono">Section <b>03</b> &mdash; Work &amp; wandering</p>
+      <div class="tabs" role="tablist">
+        <button class="tab active" role="tab" data-tab="professional" aria-selected="true">Professional</button>
+        <button class="tab" role="tab" data-tab="travel" aria-selected="false">Travel &amp; Photography</button>
+      </div>
+
+      <!-- PROFESSIONAL -->
+      <div class="panel active" id="panel-professional" role="tabpanel">
+        <h2 class="big">What I <span class="outline-dark">do</span></h2>
+        <div class="cards">
+          <article class="card reveal c-peach">
+            <span class="mono">01 / 03</span>
+            <h3>Cloud Infrastructure</h3>
+            <ul>
+              <li>Azure and AWS environments, plus Google Cloud</li>
+              <li>Site-to-Site VPN and Transit Gateway peering across regions</li>
+              <li>Hybrid and multi-cloud connectivity</li>
+            </ul>
+          </article>
+          <article class="card reveal c-mint">
+            <span class="mono">02 / 03</span>
+            <h3>Identity &amp; Devices</h3>
+            <ul>
+              <li>Microsoft 365 and Entra ID, with SSO into other platforms</li>
+              <li>Intune: Windows Autopilot and Mac enrollment via Apple Business Manager</li>
+              <li>Microsoft Defender for Endpoint rollout</li>
+            </ul>
+          </article>
+          <article class="card reveal c-lav">
+            <span class="mono">03 / 03</span>
+            <h3>Security &amp; Automation</h3>
+            <ul>
+              <li>PowerShell automation</li>
+              <li>Security and compliance in Microsoft 365</li>
+              <li>Documentation and handover for remote teams</li>
+            </ul>
+          </article>
+        </div>
+
+        <h2 class="big small">Certifications</h2>
+        <ul class="certs">
+          <!-- EDIT: put your exact certification names and years -->
+          <li class="reveal"><span class="mono">Microsoft</span><strong>Azure certification name</strong></li>
+          <li class="reveal"><span class="mono">Amazon Web Services</span><strong>AWS certification name</strong></li>
+        </ul>
+
+        <h2 class="big small">Experience</h2>
+        <ol class="timeline">
+          <!-- EDIT: replace with your real roles and dates -->
+          <li class="reveal"><span class="when mono">20XX &ndash; Present</span><strong>System Engineer &middot; NGDATA</strong><p>Cloud and workplace engineering for a remote team across Europe, India and the US: Intune device enrollment, Entra ID SSO, AWS-to-Google Cloud connectivity and Google Cloud administration.</p></li>
+          <li class="reveal"><span class="when mono">20XX &ndash; 20XX</span><strong>Role / Company</strong><p>One line on scope and impact.</p></li>
+          <li class="reveal"><span class="when mono">20XX &ndash; 20XX</span><strong>Role / Company</strong><p>One line on scope and impact.</p></li>
+        </ol>
+      </div>
+
+      <!-- TRAVEL -->
+      <div class="panel" id="panel-travel" role="tabpanel" hidden>
+        <h2 class="big">Travel &amp; <span class="outline-dark">photos</span></h2>
+        <p class="muted">Pictures from the road. Filter by trip.</p>
+        <div class="filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="iceland">Iceland</button>
+          <button class="chip" data-filter="italy">Italy</button>
+          <button class="chip" data-filter="belgium">Belgium</button>
+        </div>
+        <div class="gallery" id="gallery">
+          <!-- EDIT: put your photos in /images and update src/alt/data-cat -->
+          <figure class="shot reveal" data-cat="iceland"><img src="images/iceland-1.jpg" alt="Iceland south coast" loading="lazy"><figcaption>Iceland &middot; south coast</figcaption></figure>
+          <figure class="shot reveal" data-cat="iceland"><img src="images/iceland-2.jpg" alt="Iceland glacier lagoon" loading="lazy"><figcaption>Iceland &middot; glacier lagoon</figcaption></figure>
+          <figure class="shot reveal" data-cat="italy"><img src="images/italy-1.jpg" alt="Dolomites" loading="lazy"><figcaption>Dolomites</figcaption></figure>
+          <figure class="shot reveal" data-cat="italy"><img src="images/italy-2.jpg" alt="Italian village" loading="lazy"><figcaption>Italy &middot; village</figcaption></figure>
+          <figure class="shot reveal" data-cat="belgium"><img src="images/belgium-1.jpg" alt="Ghent" loading="lazy"><figcaption>Ghent</figcaption></figure>
+          <figure class="shot reveal" data-cat="belgium"><img src="images/belgium-2.jpg" alt="Hainaut countryside" loading="lazy"><figcaption>Hainaut</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="wrap">
+      <p class="label mono">Section <b>05</b> &mdash; Contact</p>
+      <h2 class="giant-sm reveal">Let's <span class="outline-dark">talk.</span></h2>
+      <p class="reveal">Open for a chat about cloud, security or travel tips.</p>
+      <p class="reveal">
+        <a class="pill dark big-pill" href="mailto:you@example.com">Send message</a>
+        <a class="pill light big-pill" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill light big-pill" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="mono">&copy; <span id="year"></span> Fenny &middot; Built with HTML, CSS and JS</footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="close" aria-label="Close">&times;</button>
+    <img alt="" />
+  </div>
+</body>
+</html>
